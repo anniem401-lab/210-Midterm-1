@@ -1,11 +1,14 @@
-#include <iostream>
+// COMSC-210 | Midterm #1 | Annie Morales
+// IDE used: Visual Studio Code
+
+#include <iostream> 
 using namespace std;
 
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20; //These are the constants that determine the min and max
 
 class DoublyLinkedList {
 private:
-    struct Node {
+    struct Node { // A structure named node, containing private data members.
         int data;
         Node* prev;
         Node* next;
@@ -16,8 +19,8 @@ private:
         }
     };
 
-    Node* head;
-    Node* tail;
+    Node* head; // This node points to the head of the doubly linked list.
+    Node* tail; // This node points to the tail of the doubly linked list.
 
 public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
@@ -53,7 +56,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_val(int value) {
+    void delete_val(int value) { // This function deletes a value from the doubly linked list.
         if (!head) return;
 
         Node* temp = head;
@@ -76,7 +79,7 @@ public:
         delete temp;
     }
 
-    void delete_pos(int pos) {
+    void delete_pos(int pos) { // This function deletes a number by its position in the linked list.
         if (!head) {
             cout << "List is empty." << endl;
             return;
