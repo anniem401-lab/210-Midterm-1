@@ -27,13 +27,13 @@ public:
                                                             // the initialized values of head and tail which point to nullptr.
 
     void insert_after(int value, int position) { // This inserts a node at the head, tail, or any valid position in the linked list.
-        if (position < 0) {
-            cout << "Position must be >= 0." << endl;
+        if (position < 0) { // This if statement puts out an error if the user input is less than zero.
+            cout << "Position must be >= 0." << endl; 
             return;
         }
 
         Node* newNode = new Node(value);
-        if (!head) {
+        if (!head) { // If there's no head, the list is empty.
             head = tail = newNode;
             return;
         }
@@ -42,9 +42,9 @@ public:
         for (int i = 0; i < position && temp; ++i)
             temp = temp->next;
 
-        if (!temp) {
+        if (!temp) { // A value isnt found, therefore we must've reached past the end of the linked list.
             cout << "Position exceeds list size. Node not inserted.\n";
-            delete newNode;
+            delete newNode; // This deletes the node after the error.
             return;
         }
 
@@ -81,13 +81,13 @@ public:
     }
 
     void delete_pos(int pos) { // This function deletes a number by its position in the linked list.
-        if (!head) {
+        if (!head) { // If there's no head, the list must be empty.
             cout << "List is empty." << endl;
             return;
         }
     
-        if (pos == 1) {
-            pop_front();
+        if (pos == 1) { // If the position is 1
+            pop_front(); // This removes the first element.
             return;
         }
     
