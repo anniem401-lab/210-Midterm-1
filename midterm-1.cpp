@@ -164,9 +164,9 @@ public:
         }
         Node * temp = tail;
 
-        if (tail->prev) {
-            tail = tail->prev;
-            tail->next = nullptr;
+        if (tail->prev) { // If tail points to previous
+            tail = tail->prev; // Tail goes to previous
+            tail->next = nullptr; // Then tail goes to next on the list to delete the last element.
         }
         else
             head = tail = nullptr;
@@ -180,30 +180,41 @@ public:
             delete temp; // Temp is deleted entirely
         }
     }
-    void print() { // This function usese the print method
-        Node* current = head;
-        if (!current) {
+    void print() { // This function uses the print method
+        Node* current = head; // Current is set to the head of the list.
+        if (!current) { //The list is empty if there's no current, which is pointing to head.
             cout << "List is empty." << endl;
             return;
         }
-        while (current) {
+        while (current) { // We go through the list while current is in a valid position.
             cout << current->data << " ";
             current = current->next;
         }
         cout << endl;
     }
 
-    void print_reverse() {
-        Node* current = tail;
-        if (!current) { 
+    void print_reverse() { // This function prints the list in reverse.
+        Node* current = tail; // The current is set at tail.
+        if (!current) {  //The list is empty if there's no current, which is pointing to tail.
             cout << "List is empty." << endl;
             return;
         }
-        while (current) {
+        while (current) { // We go through the list backwards while current is in a valid position.
             cout << current->data << " ";
             current = current->prev;
         }
         cout << endl;
+    }
+
+    void every_other_element()
+    {
+        int counter = 1; // Keeps count
+        Node *current = head; // Current is at the head of the list.
+        if(!current) // If there's no head where currrent can be, there's nothing in the list.
+        {
+            cout << "List is empty." << endl;
+            return;
+        }
     }
 };
 
