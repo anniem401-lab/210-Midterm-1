@@ -8,19 +8,19 @@ const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20; //These are the con
 
 class DoublyLinkedList { // A class named DoublyLinkedList, holding private and public members and functions that make up the linked list.
 private:
-    struct Node { // A structure named node, containing private data members.
-        int data;
-        Node* prev;
-        Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+    struct Node { // A declared structure named node, containing private data members.
+        int data; // This integer is named data
+        Node* prev; // This pointer points to the previous node in this linked list.
+        Node* next; // This pointer points to the next node in this linked list.
+        Node(int val, Node* p = nullptr, Node* n = nullptr) { // This node takes a full parameter constructer as an argument
             data = val; 
             prev = p;
             next = n;
         }
     };
 
-    Node* head; // This node points to the head of the doubly linked list.
-    Node* tail; // This node points to the tail of the doubly linked list.
+    Node* head; // This points to the head node of the doubly linked list.
+    Node* tail; // This points to the tail node of the doubly linked list.
 
 public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; } // This is the linked list, with the parameter as 
@@ -139,7 +139,7 @@ public:
         }
     }
     
-    void pop_front() {
+    void pop_front() { // This function removes the first element from the linked list.
 
         if (!head) {
             cout << "List is empty." << endl;
@@ -157,7 +157,7 @@ public:
         delete temp;
     }
 
-    void pop_back() {
+    void pop_back() { // This function removes the last element in the linked list.
         if (!tail) {
             cout << "List is empty." << endl;
             return;
