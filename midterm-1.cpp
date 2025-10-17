@@ -39,7 +39,7 @@ public:
         }
 
         Node* temp = head;
-        for (int i = 0; i < position && temp; ++i)
+        for (int i = 0; i < position && temp; ++i) // This traverses through the list.
             temp = temp->next;
 
         if (!temp) { // A value isnt found, therefore we must've reached past the end of the linked list.
@@ -48,7 +48,7 @@ public:
             return;
         }
 
-        newNode->next = temp->next;
+        newNode->next = temp->next; // The pointers move through the list.
         newNode->prev = temp;
         if (temp->next)
             temp->next->prev = newNode;
@@ -60,7 +60,7 @@ public:
     void delete_val(int value) { // This function deletes a value from the doubly linked list.
         if (!head) return;
 
-        Node* temp = head;
+        Node* temp = head; // Points to temp, which points to head.
         
         while (temp && temp->data != value)
             temp = temp->next;
@@ -111,7 +111,7 @@ public:
             return;
         }
     
-        Node* tempPrev = temp->prev;
+        Node* tempPrev = temp->prev; // POinters go through the list.
         tempPrev->next = temp->next;
         temp->next->prev = tempPrev;
         delete temp; // Deletes the nodes
@@ -208,7 +208,6 @@ public:
 
     void every_other_element()
     {
-        int counter = 1; // Keeps count
         Node *current = head; // Current is at the head of the list.
         if(!current) // If there's no head where currrent can be, there's nothing in the list.
         {
