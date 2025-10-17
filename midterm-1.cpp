@@ -94,11 +94,11 @@ public:
         Node* temp = head;
     
         for (int i = 1; i < pos; i++){ // Goes through the linked list to check if the position is valid.
-            if (!temp) {
+            if (!temp) { // If position isn't valid and are past bounds, it doesn't exist.
                 cout << "Position doesn't exist." << endl;
                 return;
             }
-            else
+            else // If the position is valid, we move onto the next element in the list.
                 temp = temp->next;
         }
         if (!temp) {
@@ -106,22 +106,22 @@ public:
             return;
         }
     
-        if (!temp->next) {
-            pop_back();
+        if (!temp->next) { // If we can't move to the next element
+            pop_back(); // This removes the last element in the list.
             return;
         }
     
         Node* tempPrev = temp->prev;
         tempPrev->next = temp->next;
         temp->next->prev = tempPrev;
-        delete temp;
+        delete temp; // Deletes the nodes
     }
 
     void push_back(int v) { // This function inserts an element at the end of the linked list.
-        Node* newNode = new Node(v);
-        if (!tail)
+        Node* newNode = new Node(v); // A new node pointer, equal to a new node with v as a parameter.
+        if (!tail) // If there's no tail, the list is empty.
             head = tail = newNode;
-        else {
+        else { // This will add a new node at the end of the list
             tail->next = newNode;
             newNode->prev = tail;
             tail = newNode;
@@ -130,9 +130,9 @@ public:
     
     void push_front(int v) {  // This function puts an element at the head of the linked list.
         Node* newNode = new Node(v);
-        if (!head)
+        if (!head) // If there's no head, the list is empty.
             head = tail = newNode;
-        else {
+        else { // This puts a new node at the head of the list.
             newNode->next = head;
             head->prev = newNode;
             head = newNode;
@@ -141,7 +141,7 @@ public:
     
     void pop_front() { // This function removes the first element from the linked list.
 
-        if (!head) {
+        if (!head) { // If there's no head, the list is empty.
             cout << "List is empty." << endl;
             return;
         }
@@ -158,7 +158,7 @@ public:
     }
 
     void pop_back() { // This function removes the last element in the linked list.
-        if (!tail) {
+        if (!tail) { // If there's no tail, the list is empty.
             cout << "List is empty." << endl;
             return;
         }
@@ -173,14 +173,14 @@ public:
         delete temp;
     }
 
-    ~DoublyLinkedList() {
-        while (head) {
-            Node* temp = head;
-            head = head->next;
-            delete temp;
+    ~DoublyLinkedList() { // This is the destructor to delete the entire linked list.
+        while (head) { // We traverse through the list to delete, using two pointers while head is valid.
+            Node* temp = head; // Temp points to head
+            head = head->next; // Head advances to the next node
+            delete temp; // Temp is deleted entirely
         }
     }
-    void print() {
+    void print() { // This function usese the print method
         Node* current = head;
         if (!current) {
             cout << "List is empty." << endl;
