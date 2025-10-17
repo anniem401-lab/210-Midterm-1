@@ -6,7 +6,7 @@ using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20; //These are the constants that determine the min and max
 
-class DoublyLinkedList {
+class DoublyLinkedList { // A class named DoublyLinkedList, holding private and public members and functions that make up the linked list.
 private:
     struct Node { // A structure named node, containing private data members.
         int data;
@@ -23,9 +23,10 @@ private:
     Node* tail; // This node points to the tail of the doubly linked list.
 
 public:
-    DoublyLinkedList() { head = nullptr; tail = nullptr; }
+    DoublyLinkedList() { head = nullptr; tail = nullptr; } // This is the linked list, with the parameter as 
+                                                            // the initialized values of head and tail which point to nullptr.
 
-    void insert_after(int value, int position) {
+    void insert_after(int value, int position) { // This inserts a node at the head, tail, or any valid position in the linked list.
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -92,7 +93,7 @@ public:
     
         Node* temp = head;
     
-        for (int i = 1; i < pos; i++){
+        for (int i = 1; i < pos; i++){ // Goes through the linked list to check if the position is valid.
             if (!temp) {
                 cout << "Position doesn't exist." << endl;
                 return;
@@ -116,7 +117,7 @@ public:
         delete temp;
     }
 
-    void push_back(int v) {
+    void push_back(int v) { // This function inserts an element at the end of the linked list.
         Node* newNode = new Node(v);
         if (!tail)
             head = tail = newNode;
@@ -127,7 +128,7 @@ public:
         }
     }
     
-    void push_front(int v) {
+    void push_front(int v) {  // This function puts an element at the head of the linked list.
         Node* newNode = new Node(v);
         if (!head)
             head = tail = newNode;
